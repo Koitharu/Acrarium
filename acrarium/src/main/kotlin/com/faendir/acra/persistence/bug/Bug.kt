@@ -70,7 +70,7 @@ data class Bug(
         solvedVersionCode: Int?,
         solvedVersionFlavor: String?,
         latestVersionCode: Int,
-        latestVersionFlavor: String,
+        latestVersionFlavor: String?,
         affectedInstallations: Int,
     ) : this(
         id = id,
@@ -79,7 +79,7 @@ data class Bug(
         reportCount = reportCount,
         latestReport = latestReport,
         solvedVersionKey = if (solvedVersionCode != null && solvedVersionFlavor != null) VersionKey(solvedVersionCode, solvedVersionFlavor) else null,
-        latestVersionKey = VersionKey(latestVersionCode, latestVersionFlavor),
+        latestVersionKey = VersionKey(latestVersionCode, latestVersionFlavor.orEmpty()),
         affectedInstallations = affectedInstallations
     )
 }
